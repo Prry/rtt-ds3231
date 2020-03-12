@@ -148,7 +148,7 @@ static rt_err_t rt_ds3231_control(rt_device_t dev, int cmd, void *args)
 			{
 				time_temp.tm_year  = bcd_to_hex(buff[6]) + 2000 - 1900;
 				time_temp.tm_mon   = bcd_to_hex(buff[5]&0x7f) - 1;
-				time_temp.tm_mday  = bcd_to_hex(buff[3]);
+				time_temp.tm_mday  = bcd_to_hex(buff[4]);
 				time_temp.tm_hour  = bcd_to_hex(buff[2]);
 				time_temp.tm_min   = bcd_to_hex(buff[1]);
 				time_temp.tm_sec   = bcd_to_hex(buff[0]);
@@ -165,8 +165,8 @@ static rt_err_t rt_ds3231_control(rt_device_t dev, int cmd, void *args)
             time_new = localtime(time);
             buff[6] = hex_to_bcd(time_new->tm_year + 1900 - 2000);
             buff[5] = hex_to_bcd(time_new->tm_mon + 1);
-            buff[3] = hex_to_bcd(time_new->tm_mday);
-            buff[4] = hex_to_bcd(time_new->tm_wday+1);
+            buff[4] = hex_to_bcd(time_new->tm_mday);
+            buff[3] = hex_to_bcd(time_new->tm_wday+1);
             buff[2] = hex_to_bcd(time_new->tm_hour);
             buff[1] = hex_to_bcd(time_new->tm_min);
             buff[0] = hex_to_bcd(time_new->tm_sec);
