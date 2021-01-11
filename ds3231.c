@@ -11,10 +11,13 @@
  
 #include <rtthread.h>
 #include <rtdevice.h>
-#include <rtdbg.h>
 #include "ds3231.h"
 
 #ifdef PKG_USING_DS3231
+
+#define DBG_TAG "ds3231"
+#define DBG_LVL DBG_LOG
+#include <rtdbg.h>
 
 #define 	DS3231_ARRD			0x68	/* slave address */
 
