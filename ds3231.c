@@ -260,7 +260,7 @@ int rt_hw_ds3231_init(void)
     /* init ds3231 */
     data = 0x04;	/* close clock out */
     ds3231_write_reg(&ds3231_dev, REG_CONTROL, &data, 1);
-	LOG_D("the rtc of ds3231 init succeed!\r\n");
+	LOG_D("the rtc of ds3231 init succeed!");
 	
     return 0;
 }
