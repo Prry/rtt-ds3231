@@ -12,6 +12,6 @@
 #ifndef _DS3232_H_
 #define _DS3231_H_
 
-extern int rt_hw_ds3231_init(void);
+int rt_hw_ds3231_init(void);
 
 #endif
